@@ -1,4 +1,7 @@
 import Konva from "konva";
+import Test from "./img/test.png";
+import A from "./img/a.png";
+import { Image as KonvaImage } from "konva/types/shapes/Image";
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -9,28 +12,45 @@ const stage = new Konva.Stage({
   height: height,
 });
 
+const objs: KonvaImage[] = [];
 const layer = new Konva.Layer();
-const rectX = stage.width() / 2 - 50;
-const rectY = stage.height() / 2 - 25;
 
-const box = new Konva.Rect({
-  x: rectX,
-  y: rectY,
-  width: 100,
-  height: 50,
-  fill: "#00D2FF",
-  stroke: "black",
-  strokeWidth: 4,
-  draggable: true,
-});
+function drawImage(imageObj: HTMLImageElement) {
+  const darthVaderImg: KonvaImage = new Konva.Image({
+    image: imageObj,
+    x: stage.width() / 2 - 200 / 2,
+    y: stage.height() / 2 - 137 / 2,
+    width: 200,
+    height: 137,
+    draggable: true,
+  });
 
-// add cursor styling
-box.on("mouseover", function () {
-  document.body.style.cursor = "pointer";
-});
-box.on("mouseout", function () {
-  document.body.style.cursor = "default";
-});
+  // add cursor styling
+  darthVaderImg.on("mouseover", function () {
+    document.body.style.cursor = "pointer";
+  });
+  darthVaderImg.on("mouseout", function () {
+    document.body.style.cursor = "default";
+  });
 
-layer.add(box);
-stage.add(layer);
+  layer.add(darthVaderImg);
+  stage.add(layer);
+  objs.push(darthVaderImg);
+}
+
+const testImage = new Image();
+testImage.onload = function () {
+  drawImage(testImage);
+};
+testImage.src = Test;
+
+const aImage = new Image();
+aImage.onload = function () {
+  drawImage(aImage);
+};
+aImage.src = A;
+
+window.del = function del(): void {
+  objs[0].remove();
+  layer.draw();
+};
