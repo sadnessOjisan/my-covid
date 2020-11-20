@@ -1,0 +1,19 @@
+{
+  "name": "my-covid",
+  "version": "1.0.0",
+  "description": "俺の恋人",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadnessOjisan/my-covid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sadnessOjisan/my-covid/issues"
+  },
+  "homepage": "https://github.com/sadnessOjisan/my-covid#readme"
+}
