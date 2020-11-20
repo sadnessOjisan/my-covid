@@ -4,7 +4,7 @@
   "description": "俺の恋人",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc && cp src/index.html dist/"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sadnessOjisan/my-covid/issues"
   },
-  "homepage": "https://github.com/sadnessOjisan/my-covid#readme"
+  "homepage": "https://github.com/sadnessOjisan/my-covid#readme",
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  }
 }
