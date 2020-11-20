@@ -38,19 +38,23 @@ function drawImage(imageObj: HTMLImageElement) {
   objs.push(darthVaderImg);
 }
 
-const testImage = new Image();
-testImage.onload = function () {
-  drawImage(testImage);
-};
-testImage.src = Test;
-
-const aImage = new Image();
-aImage.onload = function () {
-  drawImage(aImage);
-};
-aImage.src = A;
-
 window.del = function del(): void {
   objs[0].remove();
   layer.draw();
+};
+
+window.add = function add(imageName: string): void {
+  const imageObject = new Image();
+  if (imageName === "a") {
+    imageObject.onload = function () {
+      drawImage(imageObject);
+    };
+    imageObject.src = A;
+  } else {
+    const imageObject = new Image();
+    imageObject.onload = function () {
+      drawImage(imageObject);
+    };
+    imageObject.src = Test;
+  }
 };
