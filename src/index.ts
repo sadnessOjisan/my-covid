@@ -33,7 +33,15 @@ function drawImage(imageObj: HTMLImageElement) {
     document.body.style.cursor = "default";
   });
 
+  var tr1 = new Konva.Transformer({
+    nodes: [darthVaderImg],
+    centeredScaling: true,
+    rotationSnaps: [0, 90, 180, 270],
+    resizeEnabled: false,
+  });
+
   layer.add(darthVaderImg);
+  layer.add(tr1);
   stage.add(layer);
   objs.push(darthVaderImg);
 }
