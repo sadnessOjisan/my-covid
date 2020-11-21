@@ -18,6 +18,7 @@ const selectedImages: Transformer[] = [];
 const layer = new Konva.Layer();
 
 function drawImage(imageObj: HTMLImageElement) {
+  const id = Math.random().toString(32).substring(2);
   const loadedImage: KonvaImage = new Konva.Image({
     image: imageObj,
     x: stage.width() / 2 - 200 / 2,
@@ -25,6 +26,7 @@ function drawImage(imageObj: HTMLImageElement) {
     width: 200,
     height: 137,
     draggable: true,
+    name: id,
   });
 
   // add cursor styling
@@ -37,13 +39,14 @@ function drawImage(imageObj: HTMLImageElement) {
   loadedImage.on("click", () => {
     const tr1 = new Konva.Transformer({
       nodes: [loadedImage],
+      name: id,
     });
-    selectedImages.push(tr1);
-
     // クリックされたものだけを選択状態にする
-    selectedImages
-      .filter((image) => image !== tr1)
-      .forEach((image) => image.destroy());
+    const oldImage = selectedImages.shift();
+    if (oldImage) {
+      oldImage.destroy();
+    }
+    selectedImages.push(tr1);
     layer.draw();
     layer.add(tr1);
   });
@@ -54,7 +57,19 @@ function drawImage(imageObj: HTMLImageElement) {
 }
 
 window.del = function del(): void {
-  images[0].remove();
+  const selectedImage = selectedImages[0];
+  if (!selectedImage) {
+    alert("画像を選択してください。");
+    return;
+  }
+  const name = selectedImage.name();
+  console.log("name", name);
+  selectedImage.destroy();
+  var shapes = stage.find(`.${name}`);
+  shapes.each((shape) => {
+    shape.destroy();
+  });
+  images.shift();
   layer.draw();
 };
 
