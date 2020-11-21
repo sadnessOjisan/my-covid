@@ -2,6 +2,7 @@ import Konva from "konva";
 import Test from "./img/test.png";
 import A from "./img/a.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
+import { Transformer } from "konva/types/shapes/Transformer";
 
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -12,11 +13,12 @@ const stage = new Konva.Stage({
   height: height,
 });
 
-const objs: KonvaImage[] = [];
+const images: KonvaImage[] = [];
+const selectedImages: Transformer[] = [];
 const layer = new Konva.Layer();
 
 function drawImage(imageObj: HTMLImageElement) {
-  const darthVaderImg: KonvaImage = new Konva.Image({
+  const loadedImage: KonvaImage = new Konva.Image({
     image: imageObj,
     x: stage.width() / 2 - 200 / 2,
     y: stage.height() / 2 - 137 / 2,
@@ -26,25 +28,33 @@ function drawImage(imageObj: HTMLImageElement) {
   });
 
   // add cursor styling
-  darthVaderImg.on("mouseover", function () {
+  loadedImage.on("mouseover", function () {
     document.body.style.cursor = "pointer";
   });
-  darthVaderImg.on("mouseout", function () {
+  loadedImage.on("mouseout", function () {
     document.body.style.cursor = "default";
   });
+  loadedImage.on("click", () => {
+    const tr1 = new Konva.Transformer({
+      nodes: [loadedImage],
+    });
+    selectedImages.push(tr1);
 
-  const tr1 = new Konva.Transformer({
-    nodes: [darthVaderImg],
+    // クリックされたものだけを選択状態にする
+    selectedImages
+      .filter((image) => image !== tr1)
+      .forEach((image) => image.destroy());
+    layer.draw();
+    layer.add(tr1);
   });
 
-  layer.add(darthVaderImg);
-  layer.add(tr1);
+  layer.add(loadedImage);
   stage.add(layer);
-  objs.push(darthVaderImg);
+  images.push(loadedImage);
 }
 
 window.del = function del(): void {
-  objs[0].remove();
+  images[0].remove();
   layer.draw();
 };
 
