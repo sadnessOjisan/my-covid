@@ -35,9 +35,6 @@ function drawImage(imageObj: HTMLImageElement) {
 
   var tr1 = new Konva.Transformer({
     nodes: [darthVaderImg],
-    centeredScaling: true,
-    rotationSnaps: [0, 90, 180, 270],
-    resizeEnabled: false,
   });
 
   layer.add(darthVaderImg);
