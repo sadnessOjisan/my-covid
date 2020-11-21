@@ -33,7 +33,7 @@ function drawImage(imageObj: HTMLImageElement) {
     document.body.style.cursor = "default";
   });
 
-  var tr1 = new Konva.Transformer({
+  const tr1 = new Konva.Transformer({
     nodes: [darthVaderImg],
   });
 
