@@ -56,6 +56,16 @@ function drawImage(imageObj: HTMLImageElement) {
   images.push(loadedImage);
 }
 
+function downloadURI(uri, name) {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  link = null;
+}
+
 window.del = function del(): void {
   const selectedImage = selectedImages[0];
   if (!selectedImage) {
@@ -87,4 +97,9 @@ window.add = function add(imageName: string): void {
     };
     imageObject.src = Test;
   }
+};
+
+window.exportImage = function exportImage(): void {
+  var dataURL = stage.toDataURL({ pixelRatio: 3 });
+  downloadURI(dataURL, "stage.png");
 };
