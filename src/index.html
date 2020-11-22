@@ -6,15 +6,25 @@
     <title>my covid</title>
     <style>
       #container {
+        width: calc(100vw / 2);
+        height: calc(100vh / 2);
         border: solid 1px black !important;
+      }
+
+      .wrapper {
+        display: flex;
       }
     </style>
   </head>
   <body>
-    <button onclick="del()">delete</button>
-    <button onclick="add('test')">add test image</button>
-    <button onclick="add('a')">add a image</button>
-    <button onclick="exportImage()">save a image</button>
-    <div id="container"></div>
+    <div class="wrapper">
+      <div id="container"></div>
+      <div>
+        <button onclick="del()">delete</button>
+        <button onclick="add('test')">add test image</button>
+        <button onclick="add('a')">add a image</button>
+        <button onclick="exportImage()">save a image</button>
+      </div>
+    </div>
   </body>
 </html>
