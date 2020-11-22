@@ -4,13 +4,14 @@ import A from "./img/a.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
-const width = window.innerWidth;
-const height = window.innerHeight;
+const width = window.innerWidth / 2;
+const height = window.innerHeight / 2;
 
 const stage = new Konva.Stage({
   container: "container",
   width: width,
   height: height,
+  drawBorder: true,
 });
 
 const images: KonvaImage[] = [];
@@ -75,7 +76,7 @@ window.del = function del(): void {
   const name = selectedImage.name();
   console.log("name", name);
   selectedImage.destroy();
-  var shapes = stage.find(`.${name}`);
+  const shapes = stage.find(`.${name}`);
   shapes.each((shape) => {
     shape.destroy();
   });
@@ -100,6 +101,7 @@ window.add = function add(imageName: string): void {
 };
 
 window.exportImage = function exportImage(): void {
+  stage.find("Transformer").each((d) => d.destroy());
   var dataURL = stage.toDataURL({ pixelRatio: 3 });
   downloadURI(dataURL, "stage.png");
 };
