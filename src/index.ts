@@ -1,6 +1,7 @@
 import Konva from "konva";
 import Test from "./img/test.png";
 import A from "./img/a.png";
+import COVID from "./img/covid.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -100,8 +101,30 @@ window.add = function add(imageName: string): void {
   }
 };
 
+function init() {
+  // covidの配置
+  const imageObject = new Image();
+  imageObject.onload = function () {
+    const loadedImage: KonvaImage = new Konva.Image({
+      image: imageObject,
+      x: stage.width() / 2 - 200 / 2,
+      y: stage.height() / 2 - 200 / 2,
+      width: 200,
+      height: 200,
+    });
+    layer.add(loadedImage);
+    stage.add(layer);
+    layer.draw();
+  };
+  imageObject.src = COVID;
+}
+
 window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
   var dataURL = stage.toDataURL({ pixelRatio: 3 });
   downloadURI(dataURL, "stage.png");
 };
+
+const el: HTMLInputElement = document.getElementById("a");
+el.setAttribute("src", A);
+init();
