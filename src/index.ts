@@ -1,6 +1,6 @@
 import Konva from "konva";
-import Test from "./img/test.png";
-import A from "./img/a.png";
+import sunglass from "./img/sunglass.png";
+import eye from "./img/eye.png";
 import COVID from "./img/covid.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
@@ -87,18 +87,11 @@ window.del = function del(): void {
 
 window.add = function add(imageName: string): void {
   const imageObject = new Image();
-  if (imageName === "a") {
-    imageObject.onload = function () {
-      drawImage(imageObject);
-    };
-    imageObject.src = A;
-  } else {
-    const imageObject = new Image();
-    imageObject.onload = function () {
-      drawImage(imageObject);
-    };
-    imageObject.src = Test;
-  }
+  imageObject.onload = function () {
+    drawImage(imageObject);
+  };
+  const fileName = records.find((record) => imageName === record.id)?.fileName;
+  imageObject.src = fileName;
 };
 
 function init() {
@@ -125,6 +118,15 @@ window.exportImage = function exportImage(): void {
   downloadURI(dataURL, "stage.png");
 };
 
-const el: HTMLInputElement = document.getElementById("a");
-el.setAttribute("src", A);
 init();
+
+const records = [
+  { id: "sunglass", fileName: sunglass },
+  { id: "eye", fileName: eye },
+];
+
+records.forEach((record) => {
+  console.log("record.id", record.id);
+  const el = document.getElementById(record.id);
+  el?.setAttribute("src", record.fileName);
+});
