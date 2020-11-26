@@ -14,6 +14,12 @@
       .wrapper {
         display: flex;
       }
+
+      .imageButton {
+        width: 100px;
+        height: 100px;
+        margin: 16px;
+      }
     </style>
   </head>
   <body>
@@ -25,14 +31,33 @@
           id="sunglass"
           type="image"
           onclick="add('sunglass')"
-          class=".imageButton"
+          class="imageButton"
+        />
+        <input id="eye" type="image" onclick="add('eye')" class="imageButton" />
+        <input
+          id="mouth-lips"
+          type="image"
+          onclick="add('mouth-lips')"
+          class="imageButton"
         />
         <input
-          id="eye"
+          id="nose"
           type="image"
-          onclick="add('eye')"
-          class=".imageButton"
+          onclick="add('nose')"
+          class="imageButton"
         />
+        <input
+          id="hanage"
+          type="image"
+          onclick="add('hanage')"
+          class="imageButton"
+        /><input
+          id="redkinoko"
+          type="image"
+          onclick="add('redkinoko')"
+          class="imageButton"
+        />
+        <input id="poo" type="image" onclick="add('poo')" class="imageButton" />
         <button onclick="exportImage()">save a image</button>
       </div>
     </div>

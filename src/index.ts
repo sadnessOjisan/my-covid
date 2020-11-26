@@ -1,7 +1,12 @@
 import Konva from "konva";
+import COVID from "./img/covid.png";
 import sunglass from "./img/sunglass.png";
 import eye from "./img/eye.png";
-import COVID from "./img/covid.png";
+import mouthLips from "./img/mouth-lips.png";
+import nose from "./img/nose.png";
+import hanage from "./img/hanage.png";
+import poo from "./img/poo.png";
+import redkinoko from "./img/redkinoko.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -123,6 +128,11 @@ init();
 const records = [
   { id: "sunglass", fileName: sunglass },
   { id: "eye", fileName: eye },
+  { id: "mouth-lips", fileName: mouthLips },
+  { id: "nose", fileName: nose },
+  { id: "hanage", fileName: hanage },
+  { id: "poo", fileName: poo },
+  { id: "redkinoko", fileName: redkinoko },
 ];
 
 records.forEach((record) => {
