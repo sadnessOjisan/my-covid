@@ -1,6 +1,12 @@
 import Konva from "konva";
-import Test from "./img/test.png";
-import A from "./img/a.png";
+import COVID from "./img/covid.png";
+import sunglass from "./img/sunglass.png";
+import eye from "./img/eye.png";
+import mouthLips from "./img/mouth-lips.png";
+import nose from "./img/nose.png";
+import hanage from "./img/hanage.png";
+import poo from "./img/poo.png";
+import redkinoko from "./img/redkinoko.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -86,22 +92,51 @@ window.del = function del(): void {
 
 window.add = function add(imageName: string): void {
   const imageObject = new Image();
-  if (imageName === "a") {
-    imageObject.onload = function () {
-      drawImage(imageObject);
-    };
-    imageObject.src = A;
-  } else {
-    const imageObject = new Image();
-    imageObject.onload = function () {
-      drawImage(imageObject);
-    };
-    imageObject.src = Test;
-  }
+  imageObject.onload = function () {
+    drawImage(imageObject);
+  };
+  const fileName = records.find((record) => imageName === record.id)?.fileName;
+  imageObject.src = fileName;
 };
+
+function init() {
+  // covidの配置
+  const imageObject = new Image();
+  imageObject.onload = function () {
+    const loadedImage: KonvaImage = new Konva.Image({
+      image: imageObject,
+      x: stage.width() / 2 - 200 / 2,
+      y: stage.height() / 2 - 200 / 2,
+      width: 200,
+      height: 200,
+    });
+    layer.add(loadedImage);
+    stage.add(layer);
+    layer.draw();
+  };
+  imageObject.src = COVID;
+}
 
 window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
   var dataURL = stage.toDataURL({ pixelRatio: 3 });
   downloadURI(dataURL, "stage.png");
 };
+
+init();
+
+const records = [
+  { id: "sunglass", fileName: sunglass },
+  { id: "eye", fileName: eye },
+  { id: "mouth-lips", fileName: mouthLips },
+  { id: "nose", fileName: nose },
+  { id: "hanage", fileName: hanage },
+  { id: "poo", fileName: poo },
+  { id: "redkinoko", fileName: redkinoko },
+];
+
+records.forEach((record) => {
+  console.log("record.id", record.id);
+  const el = document.getElementById(record.id);
+  el?.setAttribute("src", record.fileName);
+});
