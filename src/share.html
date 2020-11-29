@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/__/firebase/8.1.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.1.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <title>my covid</title>
+    <style>
+      .wrapper {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>my covid</h1>
+    <div class="wrapper"></div>
+    <div>
+        <p class='title'></p>
+        <img class='covid-image'></img>
+    </div>
+    <script>
+        const id = window.location.search.split("?id")[1].split("&")[0].split("=")[1]
+       if(!id){
+           alert('idを指定してください。')
+       }
+      const db = firebase.firestore();
+      db.collection("images").doc(id).get(getOptions).then(function(doc) {
+    console.log("Cached document data:", doc.data());
+}).catch(function(error) {
+    console.log("Error getting cached document:", error);
+});;
+
+      function getQuery() {
+    if(window.location.search === "") return;
+    const variables = window.location.search.split("?")[1].split("&");
+    const obj = {};
+    variables.forEach(function(v, i) {
+        const variable = v.split("=");
+        obj[variable[0]] = Number(variable[1]);
+    });
+    return obj;
+}
+    </script>
+  </body>
+</html>
