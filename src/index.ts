@@ -121,15 +121,19 @@ function init() {
 
 window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
-  var dataURL = stage.toDataURL({ pixelRatio: 3 });
-  var storageRef = firebase.storage().ref();
-  storageRef
-    .child("mountains.jpg")
-    .putString(dataURL)
-    .then(function (snapshot: any) {
-      console.log("Uploaded a base64url string!");
-    });
-  downloadURI(dataURL, "stage.png");
+  stage.toImage({
+    callback(img) {
+      var storageRef = firebase.storage().ref();
+      storageRef
+        .child("mountains.jpg")
+        .putString(img.src, "base64")
+        .then(function (snapshot: any) {
+          console.log("Uploaded a base64url string!");
+        });
+      downloadURI(img.src, "stage.png");
+    },
+    pixelRatio: 3,
+  });
 };
 
 init();
