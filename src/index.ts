@@ -123,7 +123,7 @@ window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
   var dataURL = stage.toDataURL({ pixelRatio: 3 });
   var storageRef = firebase.storage().ref();
-  storageRef.putString(dataURL, "base64url").then(function (snapshot) {
+  storageRef.putString(dataURL, "base64url").then(function (snapshot: any) {
     console.log("Uploaded a base64url string!");
   });
   downloadURI(dataURL, "stage.png");
