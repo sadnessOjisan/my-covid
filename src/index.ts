@@ -11,6 +11,9 @@ import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
 declare const window: any;
+declare const firebase: any;
+
+const storage = firebase.storage();
 
 const width = window.innerWidth / 2;
 const height = window.innerHeight / 2;
