@@ -10,6 +10,8 @@ import redkinoko from "./img/redkinoko.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
+declare const window: any;
+
 const width = window.innerWidth / 2;
 const height = window.innerHeight / 2;
 
@@ -63,8 +65,8 @@ function drawImage(imageObj: HTMLImageElement) {
   images.push(loadedImage);
 }
 
-function downloadURI(uri, name) {
-  var link = document.createElement("a");
+function downloadURI(uri: string, name: string) {
+  let link: HTMLAnchorElement | null = document.createElement("a");
   link.download = name;
   link.href = uri;
   document.body.appendChild(link);
@@ -80,7 +82,6 @@ window.del = function del(): void {
     return;
   }
   const name = selectedImage.name();
-  console.log("name", name);
   selectedImage.destroy();
   const shapes = stage.find(`.${name}`);
   shapes.each((shape) => {
