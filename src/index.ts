@@ -11,9 +11,12 @@ import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
 declare const window: any;
+declare const firebase: any;
 
 const width = window.innerWidth / 2;
 const height = window.innerHeight / 2;
+
+var db = firebase.firestore();
 
 const stage = new Konva.Stage({
   container: "container",
@@ -120,8 +123,26 @@ function init() {
 
 window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
-  var dataURL = stage.toDataURL({ pixelRatio: 3 });
-  downloadURI(dataURL, "stage.png");
+  stage.toImage({
+    callback(img) {
+      console.log(img.src);
+      db.collection("images").add({
+        title: "Ada",
+        data: img.src,
+      });
+      // var storageRef = firebase.storage().ref();
+      // storageRef
+      //   .child("mountains.png")
+      //   .putString(img.src, "base64", {
+      //     contentType: "image/png",
+      //   })
+      //   .then(function (snapshot: any) {
+      //     console.log(snapshot);
+      //   });
+      downloadURI(img.src, "stage.png");
+    },
+    pixelRatio: 3,
+  });
 };
 
 init();
