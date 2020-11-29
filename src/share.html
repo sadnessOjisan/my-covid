@@ -18,8 +18,8 @@
     <h1>my covid</h1>
     <div class="wrapper"></div>
     <div>
-        <p class='title'></p>
-        <img class='covid-image'></img>
+        <p class='title' id='documentTitle'></p>
+        <img class='covid-image' id='covidImage'></img>
     </div>
     <script>
         const id = window.location.search.split("?id")[1].split("&")[0].split("=")[1]
@@ -29,7 +29,13 @@
        }
       const db = firebase.firestore();
       db.collection("images").doc(id).get().then(function(doc) {
-    console.log("Cached document data:", doc.data());
+    const {title, data} = doc.data()
+    const titleEl = document.getElementById('documentTitle');
+    titleEl.value = title;
+    
+    const imageEl = document.getElementById('covidImage');
+    imageEl.src = data;
+
 }).catch(function(error) {
     console.log("Error getting cached document:", error);
 });
