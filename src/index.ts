@@ -125,10 +125,12 @@ window.exportImage = function exportImage(): void {
     callback(img) {
       var storageRef = firebase.storage().ref();
       storageRef
-        .child("mountains.jpg")
-        .putString(img.src, "base64")
+        .child("mountains.png")
+        .putString(img.src, "base64", {
+          contentType: "image/png",
+        })
         .then(function (snapshot: any) {
-          console.log("Uploaded a base64url string!");
+          console.log(snapshot);
         });
       downloadURI(img.src, "stage.png");
     },
