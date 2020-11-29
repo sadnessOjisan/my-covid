@@ -13,8 +13,6 @@ import { Transformer } from "konva/types/shapes/Transformer";
 declare const window: any;
 declare const firebase: any;
 
-const storage = firebase.storage();
-
 const width = window.innerWidth / 2;
 const height = window.innerHeight / 2;
 
@@ -124,6 +122,10 @@ function init() {
 window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
   var dataURL = stage.toDataURL({ pixelRatio: 3 });
+  var storageRef = firebase.storage().ref();
+  storageRef.putString(dataURL, "base64url").then(function (snapshot) {
+    console.log("Uploaded a base64url string!");
+  });
   downloadURI(dataURL, "stage.png");
 };
 
