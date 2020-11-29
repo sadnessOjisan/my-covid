@@ -31,7 +31,7 @@
       db.collection("images").doc(id).get().then(function(doc) {
     const {title, data} = doc.data()
     const titleEl = document.getElementById('documentTitle');
-    titleEl.value = title;
+    titleEl.textContent = title;
     
     const imageEl = document.getElementById('covidImage');
     imageEl.src = data;
