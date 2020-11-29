@@ -23,26 +23,16 @@
     </div>
     <script>
         const id = window.location.search.split("?id")[1].split("&")[0].split("=")[1]
+        console.log(id)
        if(!id){
            alert('idを指定してください。')
        }
       const db = firebase.firestore();
-      db.collection("images").doc(id).get(getOptions).then(function(doc) {
+      db.collection("images").doc(id).get().then(function(doc) {
     console.log("Cached document data:", doc.data());
 }).catch(function(error) {
     console.log("Error getting cached document:", error);
-});;
-
-      function getQuery() {
-    if(window.location.search === "") return;
-    const variables = window.location.search.split("?")[1].split("&");
-    const obj = {};
-    variables.forEach(function(v, i) {
-        const variable = v.split("=");
-        obj[variable[0]] = Number(variable[1]);
-    });
-    return obj;
-}
+});
     </script>
   </body>
 </html>
