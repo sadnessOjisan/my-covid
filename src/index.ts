@@ -82,7 +82,6 @@ window.del = function del(): void {
     return;
   }
   const name = selectedImage.name();
-  console.log("name", name);
   selectedImage.destroy();
   const shapes = stage.find(`.${name}`);
   shapes.each((shape) => {
