@@ -16,6 +16,8 @@ declare const firebase: any;
 const width = window.innerWidth / 2;
 const height = window.innerHeight / 2;
 
+var db = firebase.firestore();
+
 const stage = new Konva.Stage({
   container: "container",
   width: width,
@@ -123,15 +125,20 @@ window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
   stage.toImage({
     callback(img) {
-      var storageRef = firebase.storage().ref();
-      storageRef
-        .child("mountains.png")
-        .putString(img.src, "base64", {
-          contentType: "image/png",
-        })
-        .then(function (snapshot: any) {
-          console.log(snapshot);
-        });
+      console.log(img.src);
+      db.collection("images").add({
+        title: "Ada",
+        data: img.src,
+      });
+      // var storageRef = firebase.storage().ref();
+      // storageRef
+      //   .child("mountains.png")
+      //   .putString(img.src, "base64", {
+      //     contentType: "image/png",
+      //   })
+      //   .then(function (snapshot: any) {
+      //     console.log(snapshot);
+      //   });
       downloadURI(img.src, "stage.png");
     },
     pixelRatio: 3,
