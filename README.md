@@ -2,6 +2,16 @@
 
 俺の恋人
 
+## dev
+
+開発用 URL: https://my-covid-dev.web.app
+
+```
+npm i
+
+npm run dev
+```
+
 ## TODO
 
 - [x] 画像の読み込み
@@ -11,6 +21,6 @@
 - [x] 画像の拡大縮小
 - [x] 画像の保存
 - [x] CI/CD
-- [ ] firebase deploy
+- [x] firebase deploy
 - [ ] OGP
 - [ ] UI
