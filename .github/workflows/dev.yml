@@ -31,4 +31,5 @@ jobs:
         with:
           args: deploy
         env:
+          PROJECT_ID: my-covid-dev
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN_DEV }}
