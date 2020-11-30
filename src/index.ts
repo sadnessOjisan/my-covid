@@ -29,6 +29,15 @@ const images: KonvaImage[] = [];
 const selectedImages: Transformer[] = [];
 const layer = new Konva.Layer();
 
+// canvas外クリックで選択中の画像を全部削除する
+// document.getElementById("container")?.addEventListener(
+//   "click",
+//   () => {
+//     selectedImages.forEach((transform) => transform.destroy());
+//   },
+//   true
+// );
+
 function drawImage(imageObj: HTMLImageElement) {
   const id = Math.random().toString(32).substring(2);
   const loadedImage: KonvaImage = new Konva.Image({
@@ -68,16 +77,6 @@ function drawImage(imageObj: HTMLImageElement) {
   images.push(loadedImage);
 }
 
-function downloadURI(uri: string, name: string) {
-  let link: HTMLAnchorElement | null = document.createElement("a");
-  link.download = name;
-  link.href = uri;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  link = null;
-}
-
 window.del = function del(): void {
   const selectedImage = selectedImages[0];
   if (!selectedImage) {
@@ -94,6 +93,7 @@ window.del = function del(): void {
   layer.draw();
 };
 
+// 選択された画像をcanvasに追加する
 window.add = function add(imageName: string): void {
   const imageObject = new Image();
   imageObject.onload = function () {
