@@ -122,24 +122,21 @@ function init() {
 }
 
 window.exportImage = function exportImage(): void {
+  const inputEl = document.getElementById("titleInput") as HTMLInputElement;
+  const title = inputEl;
+  inputEl.value = "";
   stage.find("Transformer").each((d) => d.destroy());
   stage.toImage({
     callback(img) {
       console.log(img.src);
-      db.collection("images").add({
-        title: "Ada",
-        data: img.src,
-      });
-      // var storageRef = firebase.storage().ref();
-      // storageRef
-      //   .child("mountains.png")
-      //   .putString(img.src, "base64", {
-      //     contentType: "image/png",
-      //   })
-      //   .then(function (snapshot: any) {
-      //     console.log(snapshot);
-      //   });
-      downloadURI(img.src, "stage.png");
+      db.collection("images")
+        .add({
+          title: title,
+          data: img.src,
+        })
+        .then((res: any) => {
+          console.log(res);
+        });
     },
     pixelRatio: 3,
   });
