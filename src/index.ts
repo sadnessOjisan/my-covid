@@ -16,8 +16,6 @@ declare const firebase: any;
 const width = window.innerWidth / 2;
 const height = window.innerHeight / 2;
 
-var db = firebase.firestore();
-
 const stage = new Konva.Stage({
   container: "container",
   width: width,
@@ -129,6 +127,7 @@ window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
   stage.toImage({
     callback(img) {
+      var db = firebase.firestore();
       db.collection("images")
         .add({
           title: title,
