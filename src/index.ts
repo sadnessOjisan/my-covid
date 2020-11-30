@@ -26,16 +26,9 @@ const stage = new Konva.Stage({
 const images: KonvaImage[] = [];
 const selectedImages: Transformer[] = [];
 const layer = new Konva.Layer();
-
-document.addEventListener("click", (e) => {
-  console.log(
-    '!e.target.closest(".container")',
-    !e.target.closest(".container")
-  );
-  console.log(
-    '!e.target.closest(".imageButton")',
-    !e.target.closest(".imageButton")
-  );
+document.addEventListener("click", (e: MouseEvent) => {
+  // canvas, 追加ボタン以外をクリックしたときはフォーカス外す
+  // @ts-ignore
   if (!e.target.closest(".container") && !e.target.closest(".imageButton")) {
     console.log("focus外す");
     selectedImages.forEach((transform) => transform.destroy());
