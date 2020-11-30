@@ -138,6 +138,7 @@ window.exportImage = function exportImage(): void {
           console.log(docRef.id);
           inputEl.value = "";
           buttonEl.textContent = "作成する";
+          window.location.href = `/share.html?id=${docRef.id}`;
         });
     },
     pixelRatio: 3,
