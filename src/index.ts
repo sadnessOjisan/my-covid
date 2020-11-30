@@ -123,7 +123,7 @@ function init() {
 
 window.exportImage = function exportImage(): void {
   const inputEl = document.getElementById("titleInput") as HTMLInputElement;
-  const title = inputEl;
+  const title = inputEl.value;
   inputEl.value = "";
   stage.find("Transformer").each((d) => d.destroy());
   stage.toImage({
