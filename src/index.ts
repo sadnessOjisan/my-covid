@@ -122,24 +122,24 @@ function init() {
 }
 
 window.exportImage = function exportImage(): void {
+  const inputEl = document.getElementById("titleInput") as HTMLInputElement;
+  const buttonEl = document.getElementById("submitbutton") as HTMLInputElement;
+  buttonEl.textContent = "送信中";
+  const title = inputEl.value;
   stage.find("Transformer").each((d) => d.destroy());
   stage.toImage({
     callback(img) {
-      console.log(img.src);
-      db.collection("images").add({
-        title: "Ada",
-        data: img.src,
-      });
-      // var storageRef = firebase.storage().ref();
-      // storageRef
-      //   .child("mountains.png")
-      //   .putString(img.src, "base64", {
-      //     contentType: "image/png",
-      //   })
-      //   .then(function (snapshot: any) {
-      //     console.log(snapshot);
-      //   });
-      downloadURI(img.src, "stage.png");
+      db.collection("images")
+        .add({
+          title: title,
+          data: img.src,
+        })
+        .then((docRef: any) => {
+          console.log(docRef.id);
+          inputEl.value = "";
+          buttonEl.textContent = "作成する";
+          window.location.href = `/share.html?id=${docRef.id}`;
+        });
     },
     pixelRatio: 3,
   });
