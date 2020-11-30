@@ -27,14 +27,26 @@ const images: KonvaImage[] = [];
 const selectedImages: Transformer[] = [];
 const layer = new Konva.Layer();
 
-// canvas外クリックで選択中の画像を全部削除する
-// document.getElementById("container")?.addEventListener(
-//   "click",
-//   () => {
-//     selectedImages.forEach((transform) => transform.destroy());
-//   },
-//   true
-// );
+document.addEventListener("click", (e) => {
+  console.log(
+    '!e.target.closest(".container")',
+    !e.target.closest(".container")
+  );
+  console.log(
+    '!e.target.closest(".imageButton")',
+    !e.target.closest(".imageButton")
+  );
+  if (!e.target.closest(".container") && !e.target.closest(".imageButton")) {
+    console.log("focus外す");
+    selectedImages.forEach((transform) => transform.destroy());
+    selectedImages.length = 0;
+    layer.draw();
+    console.log("selectedImages", selectedImages);
+  } else {
+    console.log("focus当てる");
+    console.log("selectedImages", selectedImages);
+  }
+});
 
 function drawImage(imageObj: HTMLImageElement) {
   const id = Math.random().toString(32).substring(2);
