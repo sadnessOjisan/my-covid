@@ -16,8 +16,6 @@ declare const firebase: any;
 const width = window.innerWidth / 2;
 const height = window.innerHeight / 2;
 
-var db = firebase.firestore();
-
 const stage = new Konva.Stage({
   container: "container",
   width: width,
@@ -28,6 +26,20 @@ const stage = new Konva.Stage({
 const images: KonvaImage[] = [];
 const selectedImages: Transformer[] = [];
 const layer = new Konva.Layer();
+document.addEventListener("click", (e: MouseEvent) => {
+  // canvas, 追加ボタン以外をクリックしたときはフォーカス外す
+  // @ts-ignore
+  if (!e.target.closest(".container") && !e.target.closest(".imageButton")) {
+    console.log("focus外す");
+    selectedImages.forEach((transform) => transform.destroy());
+    selectedImages.length = 0;
+    layer.draw();
+    console.log("selectedImages", selectedImages);
+  } else {
+    console.log("focus当てる");
+    console.log("selectedImages", selectedImages);
+  }
+});
 
 function drawImage(imageObj: HTMLImageElement) {
   const id = Math.random().toString(32).substring(2);
@@ -68,16 +80,6 @@ function drawImage(imageObj: HTMLImageElement) {
   images.push(loadedImage);
 }
 
-function downloadURI(uri: string, name: string) {
-  let link: HTMLAnchorElement | null = document.createElement("a");
-  link.download = name;
-  link.href = uri;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  link = null;
-}
-
 window.del = function del(): void {
   const selectedImage = selectedImages[0];
   if (!selectedImage) {
@@ -94,6 +96,7 @@ window.del = function del(): void {
   layer.draw();
 };
 
+// 選択された画像をcanvasに追加する
 window.add = function add(imageName: string): void {
   const imageObject = new Image();
   imageObject.onload = function () {
@@ -129,6 +132,7 @@ window.exportImage = function exportImage(): void {
   stage.find("Transformer").each((d) => d.destroy());
   stage.toImage({
     callback(img) {
+      var db = firebase.firestore();
       db.collection("images")
         .add({
           title: title,
