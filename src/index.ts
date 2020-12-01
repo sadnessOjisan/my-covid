@@ -61,7 +61,7 @@ function drawImage(imageObj: HTMLImageElement) {
     document.body.style.cursor = "default";
   });
   loadedImage.on("click", () => {
-    const tr1 = new Konva.Transformer({
+    const tr = new Konva.Transformer({
       nodes: [loadedImage],
       name: id,
     });
@@ -70,9 +70,9 @@ function drawImage(imageObj: HTMLImageElement) {
     if (oldImage) {
       oldImage.destroy();
     }
-    selectedImages.push(tr1);
+    selectedImages.push(tr);
     layer.draw();
-    layer.add(tr1);
+    layer.add(tr);
   });
 
   layer.add(loadedImage);
