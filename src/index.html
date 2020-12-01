@@ -10,14 +10,29 @@
     <script src="/__/firebase/init.js"></script>
     <title>my covid</title>
     <style>
+      h1 {
+        text-align: center;
+      }
+
+      .description {
+        max-width: 960px;
+        margin: auto;
+        margin-bottom: 48px;
+      }
+
       #container {
         width: calc(100vw / 2);
         height: calc(100vh / 2);
         border: solid 1px black !important;
       }
 
-      .wrapper {
+      .upper {
         display: flex;
+      }
+
+      .buttons {
+        overflow: scroll;
+        height: 50vh;
       }
 
       .imageButton {
@@ -25,46 +40,234 @@
         height: 100px;
         margin: 16px;
       }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+        position: absolute;
+        margin-bottom: 0;
+        bottom: 12px;
+        margin: auto;
+        width: 100%;
+      }
+
+      .delbutton {
+        margin-top: 24px;
+        margin-bottom: 48px;
+      }
+
+      .delbutton,
+      #submitbutton {
+        width: 200px;
+        height: 32px;
+      }
+
+      #titleInput {
+        width: 400px;
+        height: 28px;
+      }
     </style>
   </head>
   <body>
+    <section class="description">
+      <h1>My COVID</h1>
+      <p>
+        自分だけのCOVIDを作ろう！パーツボタンをクリックするとパーツを追加できます。パーツを消すときは選択状態のまま削除ボタンをクリックしてください。制作途中でリセットしたい場合は画面を更新してください。
+      </p>
+      <p>
+        PCのみのサポートです。もしモバイルからアクセスしている場合はPCからアクセスし直してください。
+      </p>
+    </section>
     <div class="wrapper">
-      <div id="container" class='container'></div>
-      <div>
-        <button onclick="del()">delete</button>
-        <input
-          id="sunglass"
-          type="image"
-          onclick="add('sunglass')"
-          class="imageButton"
-        />
-        <input id="eye" type="image" onclick="add('eye')" class="imageButton" />
-        <input
-          id="mouth-lips"
-          type="image"
-          onclick="add('mouth-lips')"
-          class="imageButton"
-        />
-        <input
-          id="nose"
-          type="image"
-          onclick="add('nose')"
-          class="imageButton"
-        />
-        <input
-          id="hanage"
-          type="image"
-          onclick="add('hanage')"
-          class="imageButton"
-        /><input
-          id="redkinoko"
-          type="image"
-          onclick="add('redkinoko')"
-          class="imageButton"
-        />
-        <input id="poo" type="image" onclick="add('poo')" class="imageButton" />
-        <input name='title' id='titleInput'></input>
-        <button onclick="exportImage()" id='submitbutton'>作成する</button>
+      <div class="upper">
+        <div id="container" class="container"></div>
+        <div class="buttons">
+          <input
+            id="sunglass"
+            type="image"
+            onclick="add('sunglass')"
+            class="imageButton"
+          />
+          <input
+            id="eye"
+            type="image"
+            onclick="add('eye')"
+            class="imageButton"
+          />
+          <input
+            id="mouth-lips"
+            type="image"
+            onclick="add('mouth-lips')"
+            class="imageButton"
+          />
+          <input
+            id="nose"
+            type="image"
+            onclick="add('nose')"
+            class="imageButton"
+          />
+          <input
+            id="hanage"
+            type="image"
+            onclick="add('hanage')"
+            class="imageButton"
+          /><input
+            id="redkinoko"
+            type="image"
+            onclick="add('redkinoko')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+          <input
+            id="poo"
+            type="image"
+            onclick="add('poo')"
+            class="imageButton"
+          />
+        </div>
+      </div>
+      <div class="form">
+        <button onclick="del()" class="delbutton">
+          選択中の画像を削除する
+        </button>
+        <div>
+          <label for="titleInput">作品名</label>
+          <input name="title" id="titleInput" />
+          <button onclick="exportImage()" id="submitbutton">作成する</button>
+        </div>
       </div>
     </div>
   </body>
