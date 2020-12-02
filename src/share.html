@@ -16,13 +16,13 @@
         text-align: center;
       }
 
-      .covid-image{
+      .covid-image {
         width: 80%;
         max-width: 600px;
         text-align: center;
       }
 
-      .title{
+      .title {
         font-weight: bold;
         font-size: 24px;
       }
@@ -31,27 +31,33 @@
   <body>
     <h1>Your COVID</h1>
     <div class="wrapper">
-        <p class='title' id='documentTitle'></p>
-        <img class='covid-image' id='covidImage'></img>
+      <p class="title" id="documentTitle"></p>
+      <img class="covid-image" id="covidImage" />
     </div>
     <script>
-        const id = window.location.search.split("?id")[1].split("&")[0].split("=")[1]
-        console.log(id)
-       if(!id){
-           alert('idを指定してください。')
-       }
+      const id = window.location.search
+        .split("?id")[1]
+        .split("&")[0]
+        .split("=")[1];
+      console.log(id);
+      if (!id) {
+        alert("idを指定してください。");
+      }
       const db = firebase.firestore();
-      db.collection("images").doc(id).get().then(function(doc) {
-    const {title, data} = doc.data()
-    const titleEl = document.getElementById('documentTitle');
-    titleEl.textContent = title;
-    
-    const imageEl = document.getElementById('covidImage');
-    imageEl.src = data;
+      db.collection("images")
+        .doc(id)
+        .get()
+        .then(function (doc) {
+          const { title, data } = doc.data();
+          const titleEl = document.getElementById("documentTitle");
+          titleEl.textContent = title;
 
-}).catch(function(error) {
-    console.log("Error getting cached document:", error);
-});
+          const imageEl = document.getElementById("covidImage");
+          imageEl.src = data;
+        })
+        .catch(function (error) {
+          console.log("Error getting cached document:", error);
+        });
     </script>
   </body>
 </html>
