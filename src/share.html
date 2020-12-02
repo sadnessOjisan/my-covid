@@ -26,6 +26,34 @@
         font-weight: bold;
         font-size: 24px;
       }
+
+      button {
+        width: 200px;
+        height: 40px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .blue {
+        background-color: rgb(156, 176, 255);
+        color: rgb(42, 76, 216);
+        border-color: rgb(42, 76, 216);
+      }
+
+      .blue:hover {
+        background-color: rgb(133, 157, 252);
+      }
+
+      .orange {
+        background-color: rgb(255, 212, 156);
+        color: rgb(232, 140, 21);
+        border-color: rgb(232, 140, 21);
+      }
+
+      .orange:hover {
+        background-color: rgb(255, 203, 136);
+      }
     </style>
   </head>
   <body>
@@ -33,6 +61,8 @@
     <div class="wrapper">
       <p class="title" id="documentTitle"></p>
       <img class="covid-image" id="covidImage" />
+      <a href="/"><button class="orange">戻る</button></a>
+      <button class="blue">tweetする</button>
     </div>
     <script>
       const id = window.location.search
