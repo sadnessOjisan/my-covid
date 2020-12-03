@@ -9,6 +9,7 @@ import poo from "./img/poo.png";
 import redkinoko from "./img/redkinoko.png";
 import hamburgerUpper from "./img/hamburgerUpper.png";
 import hamburgerBottom from "./img/hamburgerBottom.png";
+import syamiko from "./img/syamiko.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -163,6 +164,7 @@ const records = [
   { id: "redkinoko", fileName: redkinoko },
   { id: "hamburgerUpper", fileName: hamburgerUpper },
   { id: "hamburgerBottom", fileName: hamburgerBottom },
+  { id: "syamiko", fileName: syamiko },
 ];
 
 records.forEach((record) => {
