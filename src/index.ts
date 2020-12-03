@@ -11,6 +11,7 @@ import hamburgerUpper from "./img/hamburgerUpper.png";
 import hamburgerBottom from "./img/hamburgerBottom.png";
 import thinking from "./img/thinking.png";
 import syamiko from "./img/syamiko.png";
+import syamisippo from "./img/syamisippo.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -167,6 +168,7 @@ const records = [
   { id: "hamburgerBottom", fileName: hamburgerBottom },
   { id: "syamiko", fileName: syamiko },
   { id: "thinking", fileName: thinking },
+  { id: "syamisippo", fileName: syamisippo },
 ];
 
 records.forEach((record) => {
