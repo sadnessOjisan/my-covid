@@ -7,6 +7,8 @@ import nose from "./img/nose.png";
 import hanage from "./img/hanage.png";
 import poo from "./img/poo.png";
 import redkinoko from "./img/redkinoko.png";
+import hamburgerUpper from "./img/hamburgerUpper.png";
+import hamburgerBottom from "./img/hamburgerBottom.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -159,6 +161,8 @@ const records = [
   { id: "hanage", fileName: hanage },
   { id: "poo", fileName: poo },
   { id: "redkinoko", fileName: redkinoko },
+  { id: "hamburgerUpper", fileName: hamburgerUpper },
+  { id: "imageButton", fileName: imageButton },
 ];
 
 records.forEach((record) => {
