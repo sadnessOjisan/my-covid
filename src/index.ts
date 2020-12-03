@@ -162,7 +162,6 @@ const records = [
 ];
 
 records.forEach((record) => {
-  console.log("record.id", record.id);
   const el = document.getElementById(record.id);
   el?.setAttribute("src", record.fileName);
 });
