@@ -12,6 +12,11 @@ import hamburgerBottom from "./img/hamburgerBottom.png";
 import thinking from "./img/thinking.png";
 import syamiko from "./img/syamiko.png";
 import syamisippo from "./img/syamisippo.png";
+import react from "./img/react.png";
+import vue from "./img/vue.png";
+import angular from "./img/angular.png";
+import jq from "./img/jq.png";
+import jquery from "./img/jquery.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -169,6 +174,11 @@ const records = [
   { id: "syamiko", fileName: syamiko },
   { id: "thinking", fileName: thinking },
   { id: "syamisippo", fileName: syamisippo },
+  { id: "react", fileName: react },
+  { id: "vue", fileName: vue },
+  { id: "angular", fileName: angular },
+  { id: "jq", fileName: jq },
+  { id: "jquery", fileName: jquery },
 ];
 
 records.forEach((record) => {
