@@ -162,7 +162,7 @@ const records = [
   { id: "poo", fileName: poo },
   { id: "redkinoko", fileName: redkinoko },
   { id: "hamburgerUpper", fileName: hamburgerUpper },
-  { id: "imageButton", fileName: imageButton },
+  { id: "hamburgerBottom", fileName: hamburgerBottom },
 ];
 
 records.forEach((record) => {
