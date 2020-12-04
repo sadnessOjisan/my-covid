@@ -26,7 +26,7 @@ jobs:
       - name: deploy to Firebase Hosting
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting
+          args: deploy --only hosting:my-covid
         env:
           PROJECT_ID: my-covid-prd
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN_PRD }}
