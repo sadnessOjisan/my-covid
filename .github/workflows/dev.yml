@@ -28,6 +28,8 @@ jobs:
         run: npm run build
       - name: cp
         run: cp ./src/share.html dist
+      - name: cp
+        run: cp ./src/favicon.ico dist
       - name: deploy to Firebase Hosting
         uses: w9jds/firebase-action@master
         with:
