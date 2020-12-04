@@ -63,7 +63,9 @@
       <p class="title" id="documentTitle"></p>
       <img class="covid-image" id="covidImage" />
       <a href="/"><button class="orange">戻る</button></a>
-      <a href="https://twitter.com/intent/tweet?text=ツイート内容"
+      <a
+        href="https://twitter.com/intent/tweet?text=my covidを作ったよ"
+        id="tweetLink"
         ><button class="blue">tweetする</button></a
       >
     </div>
@@ -87,6 +89,10 @@
 
           const imageEl = document.getElementById("covidImage");
           imageEl.src = data;
+
+          document.getElementById(
+            "tweetLink"
+          ).href = `https://twitter.com/intent/tweet?text=my COVIDを作ったよ ${window.location.href} #my_covid_generator`;
         })
         .catch(function (error) {
           console.log("Error getting cached document:", error);

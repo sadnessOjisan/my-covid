@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "my-covid",
     "public": "dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }

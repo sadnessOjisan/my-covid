@@ -1,5 +1,6 @@
 import Konva from "konva";
 import COVID from "./img/covid.png";
+import spike from "./img/spike.png";
 import sunglass from "./img/sunglass.png";
 import eye from "./img/eye.png";
 import mouthLips from "./img/mouth-lips.png";
@@ -7,6 +8,28 @@ import nose from "./img/nose.png";
 import hanage from "./img/hanage.png";
 import poo from "./img/poo.png";
 import redkinoko from "./img/redkinoko.png";
+import hamburgerUpper from "./img/hamburgerUpper.png";
+import hamburgerBottom from "./img/hamburgerBottom.png";
+import thinking from "./img/thinking.png";
+import syamiko from "./img/syamiko.png";
+import syamisippo from "./img/syamisippo.png";
+import react from "./img/react.png";
+import vue from "./img/vue.png";
+import angular from "./img/angular.png";
+import jq from "./img/jq.png";
+import jquery from "./img/jquery.png";
+import leftarm from "./img/leftarm.png";
+import rightarm from "./img/rightarm.png";
+import ribon from "./img/ribon.png";
+import syringe from "./img/syringe.png";
+import headphone from "./img/headphone.png";
+import books from "./img/books.png";
+import dish_cup from "./img/dish_cup.png";
+import fork from "./img/fork.png";
+import houchou from "./img/houchou.png";
+import ju from "./img/ju.png";
+import taion36 from "./img/taion36.png";
+import taion38 from "./img/taion38.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -152,6 +175,7 @@ window.exportImage = function exportImage(): void {
 init();
 
 const records = [
+  { id: "spike", fileName: spike },
   { id: "sunglass", fileName: sunglass },
   { id: "eye", fileName: eye },
   { id: "mouth-lips", fileName: mouthLips },
@@ -159,6 +183,28 @@ const records = [
   { id: "hanage", fileName: hanage },
   { id: "poo", fileName: poo },
   { id: "redkinoko", fileName: redkinoko },
+  { id: "hamburgerUpper", fileName: hamburgerUpper },
+  { id: "hamburgerBottom", fileName: hamburgerBottom },
+  { id: "syamiko", fileName: syamiko },
+  { id: "thinking", fileName: thinking },
+  { id: "syamisippo", fileName: syamisippo },
+  { id: "react", fileName: react },
+  { id: "vue", fileName: vue },
+  { id: "angular", fileName: angular },
+  { id: "jq", fileName: jq },
+  { id: "jquery", fileName: jquery },
+  { id: "leftarm", fileName: leftarm },
+  { id: "rightarm", fileName: rightarm },
+  { id: "ribon", fileName: ribon },
+  { id: "syringe", fileName: syringe },
+  { id: "headphone", fileName: headphone },
+  { id: "books", fileName: books },
+  { id: "dish_cup", fileName: dish_cup },
+  { id: "fork", fileName: fork },
+  { id: "houchou", fileName: houchou },
+  { id: "ju", fileName: ju },
+  { id: "taion36", fileName: taion36 },
+  { id: "taion38", fileName: taion38 },
 ];
 
 records.forEach((record) => {
