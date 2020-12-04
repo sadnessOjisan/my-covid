@@ -22,6 +22,13 @@ import rightarm from "./img/rightarm.png";
 import ribon from "./img/ribon.png";
 import syringe from "./img/syringe.png";
 import headphone from "./img/headphone.png";
+import books from "./img/books.png";
+import dish_cup from "./img/dish_cup.png";
+import fork from "./img/fork.png";
+import houchou from "./img/houchou.png";
+import ju from "./img/ju.png";
+import taion36 from "./img/taion36.png";
+import taion38 from "./img/taion38.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -189,6 +196,13 @@ const records = [
   { id: "ribon", fileName: ribon },
   { id: "syringe", fileName: syringe },
   { id: "headphone", fileName: headphone },
+  { id: "books", fileName: books },
+  { id: "dish_cup", fileName: dish_cup },
+  { id: "fork", fileName: fork },
+  { id: "houchou", fileName: houchou },
+  { id: "ju", fileName: ju },
+  { id: "taion36", fileName: taion36 },
+  { id: "taion38", fileName: taion38 },
 ];
 
 records.forEach((record) => {
