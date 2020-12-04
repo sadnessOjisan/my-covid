@@ -17,6 +17,11 @@ import vue from "./img/vue.png";
 import angular from "./img/angular.png";
 import jq from "./img/jq.png";
 import jquery from "./img/jquery.png";
+import leftarm from "./img/leftarm.png";
+import rightarm from "./img/rightarm.png";
+import ribon from "./img/ribon.png";
+import syringe from "./img/syringe.png";
+import headphone from "./img/headphone.png";
 import { Image as KonvaImage } from "konva/types/shapes/Image";
 import { Transformer } from "konva/types/shapes/Transformer";
 
@@ -179,6 +184,11 @@ const records = [
   { id: "angular", fileName: angular },
   { id: "jq", fileName: jq },
   { id: "jquery", fileName: jquery },
+  { id: "leftarm", fileName: leftarm },
+  { id: "rightarm", fileName: rightarm },
+  { id: "ribon", fileName: ribon },
+  { id: "syringe", fileName: syringe },
+  { id: "headphone", fileName: headphone },
 ];
 
 records.forEach((record) => {
