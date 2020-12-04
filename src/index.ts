@@ -1,5 +1,6 @@
 import Konva from "konva";
 import COVID from "./img/covid.png";
+import spike from "./img/spike.png";
 import sunglass from "./img/sunglass.png";
 import eye from "./img/eye.png";
 import mouthLips from "./img/mouth-lips.png";
@@ -174,6 +175,7 @@ window.exportImage = function exportImage(): void {
 init();
 
 const records = [
+  { id: "spike", fileName: spike },
   { id: "sunglass", fileName: sunglass },
   { id: "eye", fileName: eye },
   { id: "mouth-lips", fileName: mouthLips },
